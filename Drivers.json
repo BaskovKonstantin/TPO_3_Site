@@ -1,0 +1,10 @@
+{
+  "Chrome": "C:/Users/KonBas/IdeaProjects/Drivers/chromedriver.exe",
+  "Firefox": "C:/Users/KonBas/IdeaProjects/Drivers/geckodriver.exe",
+  "Chromium": "",
+  "InternetExplorer": "",
+  "Opera": "",
+  "Safari": "",
+  "Edge": "",
+  "Site": "https://advego.com"
+  }
