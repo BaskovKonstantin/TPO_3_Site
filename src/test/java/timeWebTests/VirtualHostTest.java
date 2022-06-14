@@ -20,11 +20,9 @@ public class VirtualHostTest {
     @BeforeAll
     public static void loadPage() throws IOException {
         browserDrivers = new BrowserDrivers();
-        mainPages = new HashMap<String, MainPage>();
-        virtualHostingPagePages = new HashMap<String, VirtualHostingPage>();
-        browserDrivers.drivers.forEach((key, driver) -> driver.get("https://timeweb.com/ru/"));
+        virtualHostingPagePages = new HashMap();
+        browserDrivers.drivers.forEach((key, driver) -> driver.get("https://timeweb.com/ru/services/hosting/"));
         browserDrivers.drivers.forEach((key, driver) -> driver.manage().timeouts().pageLoadTimeout(100, TimeUnit.SECONDS));
-        browserDrivers.drivers.forEach((key, driver) -> mainPages.put(key, new MainPage(driver)));
         browserDrivers.drivers.forEach((key, driver) -> virtualHostingPagePages.put(key, new VirtualHostingPage(driver)));
         browserDrivers.drivers.forEach((key, driver) -> driver.manage().window().setSize(new Dimension(1024, 1024)));
     }
@@ -38,7 +36,6 @@ public class VirtualHostTest {
     @Test
     @DisplayName("ClickVirtualHosting")
     public void clickVirtualHosting() throws InterruptedException {
-        mainPages.forEach((key, mainPage) -> assertTrue(mainPage.clickVirtualHosting()));
         virtualHostingPagePages.forEach((key, virtualHostingPagePage) -> assertTrue(virtualHostingPagePage.checkUrl()));
     }
 
