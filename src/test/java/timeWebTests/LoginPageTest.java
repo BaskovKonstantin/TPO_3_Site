@@ -74,4 +74,9 @@ public class LoginPageTest {
     public void loginButtonClick() throws InterruptedException {
         loginPageHashMap.forEach((key, LoginPage) -> LoginPage.clickLoginButton());
     }
+
+    @AfterAll
+    public static void closeUp() throws InterruptedException {
+        browserDrivers.closeBrowser();
+    }
 }

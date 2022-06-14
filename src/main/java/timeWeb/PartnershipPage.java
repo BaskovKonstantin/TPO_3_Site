@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
-public class Partnership {
+public class PartnershipPage {
 
     @FindBy(xpath = "/html/body/div[2]/div[2]/section/div[1]/div[1]/div/div[1]/div/div[2]/button")
     public WebElement registrationButton;
@@ -26,7 +26,7 @@ public class Partnership {
 
     public WebDriver driver;
 
-    public Partnership(WebDriver webDriver) {
+    public PartnershipPage(WebDriver webDriver) {
         PageFactory.initElements(webDriver, this);
         this.driver = webDriver;
         this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
