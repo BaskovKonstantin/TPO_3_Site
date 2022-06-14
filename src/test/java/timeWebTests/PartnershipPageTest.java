@@ -42,7 +42,7 @@ public class PartnershipPageTest {
     @Test
     @DisplayName("LoginButtonCheck")
     public void loginButtonCheck() throws InterruptedException {
-        partnershipPageHashMap.forEach((key, PartnershipPage) -> assertEquals(PartnershipPage.loginButton.isDisplayed()));
+        partnershipPageHashMap.forEach((key, PartnershipPage) -> assertTrue(PartnershipPage.loginButton.isDisplayed()));
     }
 
     @Test
