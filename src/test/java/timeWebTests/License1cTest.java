@@ -20,10 +20,9 @@ public class License1cTest {
     @BeforeAll
     public static void loadPage() throws IOException {
         browserDrivers = new BrowserDrivers();
-        mainPages = new HashMap();
-        browserDrivers.drivers.forEach((key, driver) -> driver.get("https://timeweb.com/ru/"));
+        license1cPages = new HashMap();
+        browserDrivers.drivers.forEach((key, driver) -> driver.get("https://timeweb.com/ru/services/bitrix/license/"));
         browserDrivers.drivers.forEach((key, driver) -> driver.manage().timeouts().pageLoadTimeout(100, TimeUnit.SECONDS));
-        browserDrivers.drivers.forEach((key, driver) -> mainPages.put(key, new MainPage(driver)));
         browserDrivers.drivers.forEach((key, driver) -> license1cPages.put(key, new License1cPage(driver)));
         browserDrivers.drivers.forEach((key, driver) -> driver.manage().window().setSize(new Dimension(1024, 1024)));
     }
@@ -37,7 +36,6 @@ public class License1cTest {
     @Test
     @DisplayName("clickVpsVds")
     public void clickVpsVds() throws InterruptedException {
-        mainPages.forEach((key, mainPage) -> assertTrue(mainPage.clickVpsVds()));
         license1cPages.forEach((key, license1cPage) -> assertTrue(license1cPage.checkUrl()));
     }
 }

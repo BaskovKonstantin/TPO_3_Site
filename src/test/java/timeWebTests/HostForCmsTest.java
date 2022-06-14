@@ -14,16 +14,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HostForCmsTest {
     static BrowserDrivers browserDrivers;
-    static HashMap<String, MainPage> mainPages;
     static HashMap<String, CmsHostingPage> cmsHostingPages;
 
     @BeforeAll
     public static void loadPage() throws IOException {
         browserDrivers = new BrowserDrivers();
-        mainPages = new HashMap();
-        browserDrivers.drivers.forEach((key, driver) -> driver.get("https://timeweb.com/ru/"));
+        cmsHostingPages = new HashMap();
+        browserDrivers.drivers.forEach((key, driver) -> driver.get("https://timeweb.com/ru/services/cms/"));
         browserDrivers.drivers.forEach((key, driver) -> driver.manage().timeouts().pageLoadTimeout(100, TimeUnit.SECONDS));
-        browserDrivers.drivers.forEach((key, driver) -> mainPages.put(key, new MainPage(driver)));
+
         browserDrivers.drivers.forEach((key, driver) -> cmsHostingPages.put(key, new CmsHostingPage(driver)));
         browserDrivers.drivers.forEach((key, driver) -> driver.manage().window().setSize(new Dimension(1024, 1024)));
     }
@@ -37,7 +36,6 @@ public class HostForCmsTest {
     @Test
     @DisplayName("ClickCmsHost")
     public void clickCmsHost() throws InterruptedException {
-        mainPages.forEach((key, mainPage) -> assertTrue(mainPage.clickCmsHost()));
         cmsHostingPages.forEach((key, cmsHostingPage) -> assertTrue(cmsHostingPage.checkUrl()));
     }
 }

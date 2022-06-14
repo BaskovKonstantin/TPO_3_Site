@@ -26,7 +26,6 @@ public class MainPage {
     public WebElement license1cLink;
 
 
-
     public WebDriver driver;
 
     public MainPage(WebDriver webDriver) {
@@ -35,27 +34,27 @@ public class MainPage {
         this.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
-    public boolean clickVirtualHosting(){
+    public boolean clickVirtualHosting() {
         virtualHostingLink.click();
         return true;
     }
 
-    public boolean clickCmsHost(){
+    public boolean clickCmsHost() {
         cmsHostLink.click();
         return true;
     }
 
-    public boolean clickVpsVds(){
+    public boolean clickVpsVds() {
         vpsVdsLink.click();
         return true;
     }
 
-    public boolean clickHosting1c(){
+    public boolean clickHosting1c() {
         hosting1cLink.click();
         return true;
     }
 
-    public boolean clickLicense1c(){
+    public boolean clickLicense1c() {
         license1cLink.click();
         return true;
     }
